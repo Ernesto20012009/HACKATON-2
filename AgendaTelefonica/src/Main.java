@@ -5,16 +5,15 @@ public class Main {
         //Scanner para la entradad de datos
         Scanner sc = new Scanner(System.in); // inputs
         Agenda agenda = null;
-        int opcion; //entrada del menu
-
+        //menu
         System.out.println("===============CREAR AGENDA============");
         System.out.println("¿Como quieres crear la agenda?");
         System.out.println("1.-10 contactos");
         System.out.println("2.- Tamaño personalizado");
         System.out.println("Selecciona uan opción");
-        opcion = sc.nextInt();
-        sc.nextLine();
-        if (opcion == 2) {
+        int opcionIniciar = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+        if (opcionIniciar == 2) {
             System.out.println("Ingresa el tamaño de la agenda: ");
             int tamanio = sc.nextInt();
             agenda = new Agenda(tamanio);
@@ -23,10 +22,8 @@ public class Main {
             agenda = new Agenda();
             System.out.println("Se creo la agenda con 10 contactos");
         }//Else
-
+        int opcion;
         do {
-
-
             System.out.println("=================AGENDA TELEFONICA=======================");
             System.out.println("1.- Aniadir contacto");
             System.out.println("2.- Listar Contacto");
@@ -49,8 +46,60 @@ public class Main {
                     String numero = sc.nextLine();
                     agenda.AddContacto(new Contacto(nombre,apellido,numero));
                     break;
+                case 2:
+                    agenda.listarContactos();
+                    break;
+                case 3:
+                    System.out.print("Nombre del contacto a buscar: ");
+                    String nomB = sc.nextLine();
+                    System.out.print("Apellido del contacto a buscar: ");
+                    String apB = sc.nextLine();
+                    agenda.buscaContacto(nomB, apB);
+                    break;
+                case 4:
+                    System.out.print("Nombre del contacto: ");
+                    String nomV = sc.nextLine();
+                    System.out.print("Apellido del contacto: ");
+                    String apV = sc.nextLine();
+                    if (agenda.existeContacto(new Contacto(nomV, apV, ""))) {
+                        System.out.println("El contacto SÍ existe en la agenda.");
+                    } else {
+                        System.out.println("El contacto NO existe en la agenda.");
+                    }
+                    break;
+                case 5:
+                    System.out.print("Nombre del contacto: ");
+                    String nomM = sc.nextLine();
+                    System.out.print("Apellido del contacto: ");
+                    String apM = sc.nextLine();
+                    System.out.print("Nuevo teléfono: ");
+                    String telN = sc.nextLine();
+                    agenda.modificarTelefono(nomM, apM, telN);
+                    break;
+                case 6:
+                    System.out.print("Nombre del contacto a eliminar: ");
+                    String nomE = sc.nextLine();
+                    System.out.print("Apellido del contacto a eliminar: ");
+                    String apE = sc.nextLine();
+                    agenda.eliminarContacto(new Contacto(nomE, apE, ""));
+                    break;
+                case 7:
+                    if (agenda.agendaLlena()) {
+                        System.out.println("Sí, la agenda está llena.");
+                    } else {
+                        System.out.println("No, todavía hay espacio disponible.");
+                    }
+                    break;
+                case 8:
+                    System.out.println("Espacios libres disponibles: " + agenda.espacioAgenda());
+                    break;
+                case 9:
+                    System.out.println("¡Saliendo del sistema de agenda.");
+                    break;
+                default:
+                    System.out.println(" Opción no válida. Intenta de nuevo.");
             }//Switch
             //System.out.println(opcion);
-        } // fin main
+        }while(opcion !=9);// fin main
     } // fin CLASS Main
 }
