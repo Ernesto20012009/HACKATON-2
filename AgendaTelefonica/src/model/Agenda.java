@@ -132,5 +132,6 @@ public class Agenda {
         }
         System.out.println("No se puede modificar: el contacto no existe en la agenda.");
         return false;
+
     } // fin modificarTelefono
 } // fin class Agenda

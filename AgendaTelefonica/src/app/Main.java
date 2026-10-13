@@ -48,7 +48,7 @@ public class Main {
                     String nombre = sc.nextLine();
                     System.out.println("Ingresa el apellido: ");
                     String apellido = sc.nextLine();
-                    System.out.println("ingresa el numero: ");
+                    System.out.println("Ingresa el numero: ");
                     String numero = sc.nextLine();
                     agenda.AddContacto(new Contacto(nombre, apellido, numero));
                     break;

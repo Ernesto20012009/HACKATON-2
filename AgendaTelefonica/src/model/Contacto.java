@@ -60,6 +60,6 @@ public class Contacto {
     // IMPRIME LOS RESULTADOS EN EL FORMATO: Nombre Apellido - Teléfono
     @Override
     public String toString() {
-        return nombre + " " + apellido + " - " + telefono;
+        return nombre + " " + apellido + " : " + telefono;
     } // fin toString
 } // fin class Contacto
