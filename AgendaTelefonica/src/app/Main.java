@@ -1,4 +1,5 @@
 package app;
+
 import java.util.Scanner;
 
 import model.Agenda;
@@ -6,26 +7,26 @@ import model.Contacto;
 
 public class Main {
     public static void main(String[] args) {
-        //Scanner para la entradad de datos
+        // Scanner para la entradad de datos
         Scanner sc = new Scanner(System.in); // inputs
         Agenda agenda = null;
-        //menu
+        // menu
         System.out.println("===============CREAR AGENDA============");
         System.out.println("¿Como quieres crear la agenda?");
         System.out.println("1.-10 contactos");
         System.out.println("2.- Tamaño personalizado");
-        System.out.println("Selecciona uan opción");
+        System.out.println("Selecciona una opción");
         int opcionIniciar = sc.nextInt();
         sc.nextLine(); // limpiar buffer
         if (opcionIniciar == 2) {
             System.out.println("Ingresa el tamaño de la agenda: ");
             int tamanio = sc.nextInt();
             agenda = new Agenda(tamanio);
-        }//if Opciones
+        } // if Opciones
         else {
             agenda = new Agenda();
             System.out.println("Se creo la agenda con 10 contactos");
-        }//Else
+        } // Else
         int opcion;
         do {
             System.out.println("\n================= AGENDA TELEFÓNICA =======================");
@@ -46,10 +47,10 @@ public class Main {
                     System.out.println("Ingresa el nombre: ");
                     String nombre = sc.nextLine();
                     System.out.println("Ingresa el apellido: ");
-                    String  apellido = sc.nextLine();
+                    String apellido = sc.nextLine();
                     System.out.println("ingresa el numero: ");
                     String numero = sc.nextLine();
-                    agenda.AddContacto(new Contacto(nombre,apellido,numero));
+                    agenda.AddContacto(new Contacto(nombre, apellido, numero));
                     break;
                 case 2:
                     agenda.listarContactos();
@@ -103,8 +104,8 @@ public class Main {
                     break;
                 default:
                     System.out.println(" Opción no válida. Intenta de nuevo.");
-            }//Switch
-            //System.out.println(opcion);
-        }while(opcion !=9);// fin main
+            }// Switch
+             // System.out.println(opcion);
+        } while (opcion != 9);// fin main
     } // fin CLASS Main
 }
