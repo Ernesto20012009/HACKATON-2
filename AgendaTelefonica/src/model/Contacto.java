@@ -40,7 +40,7 @@ public class Contacto {
     }// fin setTelefono
     // //////////////////////////////////////////////////
 
-    // UN CONTACTO SE CONSIDERA IGAL A OTRO CUANDO TIENEN EL MISMMO NOMBRE Y APELLIDO
+    // UN CONTACTO SE CONSIDERA IGUAL A OTRO CUANDO TIENEN EL MISMMO NOMBRE Y APELLIDO
     //(SIN DISTINGUIR ENTRE MAYUSCULAS Y minusculas)
     @Override
     public boolean equals(Object object){
@@ -57,14 +57,9 @@ public class Contacto {
     }// fin nombreNormalizado
 
 
-    //  IMPRIME LOS RESULTADOS  |
-    //                          V
+    // IMPRIME LOS RESULTADOS EN EL FORMATO: Nombre Apellido - Teléfono
     @Override
     public String toString() {
-        return "Contacto{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
-    }// FIN toString
-}// fin class Contacto
+        return nombre + " " + apellido + " - " + telefono;
+    } // fin toString
+} // fin class Contacto

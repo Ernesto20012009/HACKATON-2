@@ -28,19 +28,20 @@ public class Main {
         }//Else
         int opcion;
         do {
-            System.out.println("=================AGENDA TELEFONICA=======================");
-            System.out.println("1.- Aniadir contacto");
-            System.out.println("2.- Listar Contacto");
-            System.out.println("3.- Buscar Contacto");
-            System.out.println("4.- Eliminar Contacto");
-            System.out.println("5.- Modificar Telefono");
-            System.out.println("6.- Verificar si la agenda esta llena");
-            System.out.println("7.-Ver espacios libres de Agenda");
-            System.out.println("8.- Salir: ");
-            System.out.println("Elige una opcion (del 1 al 8): ");
-            opcion = sc.nextInt();// guarda el valor del usuario
-            sc.nextLine();// limpia el buffer de la entrada
-            switch (opcion){
+            System.out.println("\n================= AGENDA TELEFÓNICA =======================");
+            System.out.println("1.- Añadir contacto");
+            System.out.println("2.- Listar contactos");
+            System.out.println("3.- Buscar contacto");
+            System.out.println("4.- Comprobar si existe un contacto");
+            System.out.println("5.- Modificar teléfono");
+            System.out.println("6.- Eliminar contacto");
+            System.out.println("7.- Verificar si la agenda está llena");
+            System.out.println("8.- Ver espacios libres de la agenda");
+            System.out.println("9.- Salir");
+            System.out.print("Elige una opción (del 1 al 9): ");
+            opcion = sc.nextInt(); // guarda el valor del usuario
+            sc.nextLine(); // limpia el buffer de la entrada
+            switch (opcion) {
                 case 1:
                     System.out.println("Ingresa el nombre: ");
                     String nombre = sc.nextLine();
@@ -98,7 +99,7 @@ public class Main {
                     System.out.println("Espacios libres disponibles: " + agenda.espacioAgenda());
                     break;
                 case 9:
-                    System.out.println("¡Saliendo del sistema de agenda.");
+                    System.out.println("Saliendo de la agenda.");
                     break;
                 default:
                     System.out.println(" Opción no válida. Intenta de nuevo.");
