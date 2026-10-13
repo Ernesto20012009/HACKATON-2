@@ -15,28 +15,28 @@ public class Agenda {
         this.contador = 0;
     }//Constructor Agenda
 
-   public boolean AddContacto(Contacto contacto1) {
-       if (contacto1.getNombre() == null || contacto1.getNombre().trim().isEmpty() ||
-               contacto1.getApellido() == null || contacto1.getApellido().trim().isEmpty()) {
+   public boolean AddContacto(Contacto contactoNuevo) {
+       if (contactoNuevo.getNombre() == null || contactoNuevo.getNombre().trim().isEmpty() ||
+               contactoNuevo.getApellido() == null || contactoNuevo.getApellido().trim().isEmpty()) {
            System.out.println("El nombre y apellido no pueden estar vacios");
            return false;
        }
        if (agendaLlena()) {// validar si la agenda esta llena
            System.out.println("La agenda esta llena, no queda más espacio");
            return false;
+       }
            // Validar si el contacto ya existe
-           if (existeContacto(contacto1)) {
+           if(existeContacto(contactoNuevo)) {
                System.out.println("El contacto ya existe en la agenda (nombre y apellido duplicados).");
                return false;
            }
-           contactos[contador] = contacto1;
+           contactos[contador] = contactoNuevo;
            contador++;
            System.out.println("Contacto añadido exitosamente.");
            return true;
        }//If Agenda Llena
 
-       return false;
-   }//fin addContacto
+   //fin addContacto
 
     public boolean agendaLlena(){
         return contador >= contactos.length;
@@ -50,6 +50,16 @@ public class Agenda {
 
     }//espacio de la agenda
 
+    // METODO PARA VERIFICAR SI UN CONTACTO YA EXISTE EN LA AGENDA
+    public boolean existeContacto(Contacto contactoNuevo){
+        for (int i = 0; i<contador; i++){
+            if(contactos[i].equals(contactoNuevo)){
+                return true;
+            }
+        }
+        return false;
+    }// fin existeContacto
+
 // METODO QUE MUESTGRA TODOS LOS CONTACTOS ORDENADOS ALFABETICAMENTE POR NOMBRE Y APELLIDO
     public void listarContactos(){
 
@@ -62,7 +72,7 @@ public class Agenda {
     }// fin buscarContacto
 
 //METODO PARA ELIMINAR CONTACTO
-    public boolean eliminarContacto(Contacto contacto1){
+    public boolean eliminarContacto(Contacto contactoNuevo){
     return false;
     }// fin eliminarContacto
 
