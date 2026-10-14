@@ -36,10 +36,19 @@ Es la encargada de coordinar la ejecución del programa y la interacción direct
 
 ### Instrucciones para compilar y ejecutar:
 
-1. Compilar los archivos fuente desde la terminal:
-   `javac Main.java Agenda.java Contacto.java`
+1. Abrir una terminal y situarse en la carpeta del proyecto `AgendaTelefonica`:
+   ```bash
+   cd AgendaTelefonica
+   ```
 
-2. Ejecutar la aplicación:
-   `java Main`
+2. Compilar los archivos fuente especificando la salida a la carpeta `out`:
+   ```bash
+   javac -d out src/model/*.java src/app/*.java
+   ```
 
-3. Seguir las indicaciones del menú interactivo que aparecerá en pantalla.
+3. Ejecutar la aplicación indicando el classpath y la clase principal (`app.Main`):
+   ```bash
+   java -cp out app.Main
+   ```
+
+4. Seguir las indicaciones del menú interactivo que aparecerá en pantalla.
